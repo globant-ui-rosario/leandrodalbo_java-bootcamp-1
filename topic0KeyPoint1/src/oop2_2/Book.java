@@ -53,12 +53,24 @@ public class Book {
 	public String toString() {
 		StringBuilder stringBuilder = new StringBuilder();
 
-		stringBuilder.append("Book[name=" + this.getName() + ",authors={");
+		stringBuilder.append("Book[name=");
+		stringBuilder.append(this.getName()); 
+		stringBuilder.append(",authors={");
 
 		for (Author author : this.getListOfAuthors()) {
-			stringBuilder.append("[name=" + author.getName() + ",email=" + author.getEmail() + ",gender=" + author.getGender() + "]");
+			stringBuilder.append("[name=");
+			stringBuilder.append(author.getName());
+			stringBuilder.append(",email=");
+			stringBuilder.append(author.getEmail());
+			stringBuilder.append(",gender=");
+			stringBuilder.append(author.getGender());
+			stringBuilder.append("]");
 		}
-		stringBuilder.append("},price=" + this.getPrice() + "qty=" + this.getQty() + "]");
+		stringBuilder.append("},price=");
+		stringBuilder.append(this.getPrice());
+		stringBuilder.append("qty=");
+		stringBuilder.append(this.getQty());
+		stringBuilder.append("]");
 
 		return stringBuilder.toString();
 	}

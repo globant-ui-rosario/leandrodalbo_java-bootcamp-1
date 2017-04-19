@@ -25,20 +25,22 @@ public class MyTime {
 
 	public void setTime(int hour, int minute, int second) throws IllegalArgumentException {
 
-		if (MyTime.isValidHour(hour))
+		if (MyTime.isValidHour(hour)) {
 			this.hour = hour;
-		else
+		} else {
 			throw new IllegalArgumentException();
 
-		if (MyTime.isValidMinuteOrSecond(minute))
+		}
+		if (MyTime.isValidMinuteOrSecond(minute)) {
 			this.minute = minute;
-		else
+		} else {
 			throw new IllegalArgumentException();
-
-		if (MyTime.isValidMinuteOrSecond(second))
+		}
+		if (MyTime.isValidMinuteOrSecond(second)) {
 			this.second = second;
-		else
+		} else {
 			throw new IllegalArgumentException();
+		}
 
 	}
 
@@ -79,17 +81,14 @@ public class MyTime {
 	}
 
 	public static boolean isValidHour(int hour) {
-		if (hour >= 0 && hour <= 23)
-			return true;
-		else
-			return false;
+
+		return (hour >= 0 && hour <= 23) ? true : false;
+
 	}
 
 	public static boolean isValidMinuteOrSecond(int hour) {
-		if (hour >= 0 && hour <= 59)
-			return true;
-		else
-			return false;
+
+		return (hour >= 0 && hour <= 59) ? true : false;
 	}
 
 	public String toString() {
