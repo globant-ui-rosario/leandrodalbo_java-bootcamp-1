@@ -82,13 +82,13 @@ public class MyTime {
 
 	public static boolean isValidHour(int hour) {
 
-		return (hour >= 0 && hour <= 23) ? true : false;
+		return (hour >= 0 && hour <= 23);
 
 	}
 
 	public static boolean isValidMinuteOrSecond(int hour) {
 
-		return (hour >= 0 && hour <= 59) ? true : false;
+		return (hour >= 0 && hour <= 59);
 	}
 
 	public String toString() {
