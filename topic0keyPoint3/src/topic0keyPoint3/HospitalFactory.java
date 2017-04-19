@@ -3,12 +3,12 @@ package topic0keyPoint3;
 public class HospitalFactory {
 
 	public Hospital getAhospital(String hospitalType) {
-
-		if (hospitalType.equals("psychiatricHospital")) {
+		
+		if ("psychiatricHospital".equalsIgnoreCase(hospitalType)) {
 
 			return new PsychiatricHospital();
 
-		} else if (hospitalType.equals("rehabilitationHospital")) {
+		} else if ("rehabilitationHospital".equalsIgnoreCase(hospitalType)) {
 			return new RehabilitationHospital();
 
 		} else
