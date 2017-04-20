@@ -58,6 +58,7 @@ public class Employee {
 		return this.getSalary() + ((this.getSalary() * percent) / 100);
 	}
 
+	@Override
 	public String toString() {
 
 		return "Employee[id=" + this.getId() + " name=" + this.getName() + " salary=" + this.getSalary();
