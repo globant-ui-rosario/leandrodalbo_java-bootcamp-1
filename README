@@ -1,6 +1,3 @@
 BootCamp
 
-Intructions to run topic2 key points one and two:
 
--cd topic2KeyPoint1AndKeyPoint2/
--java -cp target/topic2KeyPoint1AndKeyPoint2-1.0-SNAPSHOT.jar leaMavenK12.App 
