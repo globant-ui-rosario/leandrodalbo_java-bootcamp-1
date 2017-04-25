@@ -11,14 +11,14 @@
 	<groupId>leamavenk4</groupId>
 	<artifactId>topic2KeyPoint4</artifactId>
 	<packaging>war</packaging>
-	<version>1.0-SNAPSHOT</version>
+	
 	<name>topic2KeyPoint4 Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
+			<version>4.8.2</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
