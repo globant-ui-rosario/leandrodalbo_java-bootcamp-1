@@ -1,6 +1,6 @@
-4 warnings
-= REST resources of project
-0.1-SNAPSHOT
+
+= SERVICES API-DOC
+
 
 == `POST shoppingCartService/addAlistOfItems/{items}`
 
