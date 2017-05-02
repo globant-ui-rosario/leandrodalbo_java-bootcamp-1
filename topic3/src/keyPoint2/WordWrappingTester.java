@@ -7,34 +7,29 @@ import org.junit.Test;
 public class WordWrappingTester {
 
 	@Test
-	public void test60_70() {
-
-		WordWrapper wordWrapper = new WordWrapper(60, "just a phrase with thirty c...");
-		wordWrapper.print();
-
+	public void testCase0() {
+		Context context = new Context();
+		assertEquals(context.getResult("just a phrase with thirty c...", 60), "just a phrase with thirty c...");
 	}
 
 	@Test
-	public void test7_hw() {
+	public void testCase_1() {
 
-		WordWrapper wordWrapper = new WordWrapper(7, "Hello Word!");
-		wordWrapper.print();
-
+		Context context = new Context();
+		assertEquals(context.getResult("Hello Word!", 7), "Hello,Word!");
 	}
 
 	@Test
 	public void test3_abcdef() {
-
-		WordWrapper wordWrapper = new WordWrapper(3, "a b c d e f");
-		wordWrapper.print();
+		Context context = new Context();
+		assertEquals(context.getResult("a b c d e f", 3), "ab,cd,ef");
 
 	}
 
 	@Test
 	public void test5_excelent() {
 
-		WordWrapper wordWrapper = new WordWrapper(5, "Excelent");
-		wordWrapper.print();
-
+		Context context = new Context();
+		assertEquals(context.getResult("Excelent", 5), "Excel,ent");
 	}
 }

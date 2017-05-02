@@ -5,7 +5,7 @@ import java.util.List;
 
 public class RecentFileList {
 
-	static final int TOP = 15;
+	static final int TOP = 3;
 	private List<MyFile> files;
 	private int fileTimeStampCounter;
 
@@ -71,6 +71,12 @@ public class RecentFileList {
 			}
 		}
 		return file;
+	}
+
+	public boolean contains(MyFile file) {
+
+		return (this.getFile(file.getName()) != null);
+
 	}
 
 	public void bump(MyFile file) {
