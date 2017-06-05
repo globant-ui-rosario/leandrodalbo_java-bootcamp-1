@@ -12,27 +12,27 @@ import finalProject.services.ShoppingCartService;
 @RestController
 public class ShoppingCartRestController {
 
-	@Autowired
-	private ShoppingCartService shoppingCartService;
+    @Autowired
+    private ShoppingCartService shoppingCartService;
 
-	@RequestMapping(method = RequestMethod.GET, value = "shoppingCart")
-	public ShoppingCart getAshoppingCart() {
+    @RequestMapping(method = RequestMethod.GET, value = "/{userId}/shoppingCart")
+    public ShoppingCart getAshoppingCart(@PathVariable int userId) {
 
-		return shoppingCartService.getAshoppingCart();
+        return shoppingCartService.getAshoppingCart(userId);
 
-	}
+    }
 
-	@RequestMapping(method = RequestMethod.PUT, value = "shoppingCart/addProduct/{productid}")
-	public void addProduct(@PathVariable int productid) {
+    @RequestMapping(method = RequestMethod.PUT, value = "/{userId}/shoppingCart/addProduct/{productid}")
+    public void addProduct(@PathVariable int userId, @PathVariable int productid) {
 
-		shoppingCartService.addProduct(productid);
+        shoppingCartService.addProduct(userId, productid);
 
-	}
+    }
 
-	@RequestMapping(method = RequestMethod.PUT, value = "shoppingCart/save")
-	public void addProduct() {
+    @RequestMapping(method = RequestMethod.PUT, value = "/{userId}/shoppingCart/save")
+    public void addProduct(@PathVariable int userId) {
 
-		shoppingCartService.saveShoppingCart();
+        shoppingCartService.saveShoppingCart(userId);
 
-	}
+    }
 }

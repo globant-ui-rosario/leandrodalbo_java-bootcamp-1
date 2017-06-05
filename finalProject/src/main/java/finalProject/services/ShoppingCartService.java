@@ -7,10 +7,10 @@ import finalProject.model.ShoppingCart;
 @Service
 public interface ShoppingCartService {
 
-	public ShoppingCart getAshoppingCart();
+	public ShoppingCart getAshoppingCart(Integer userid);
 
-	public void addProduct(Integer productid);
+	public void addProduct(Integer userid,Integer productid);
 
-	public void saveShoppingCart();
+	public void saveShoppingCart(Integer userId);
 
 }

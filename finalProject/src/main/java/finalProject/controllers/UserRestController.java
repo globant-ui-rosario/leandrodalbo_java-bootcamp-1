@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import finalProject.model.Session;
 import finalProject.model.User;
 import finalProject.services.UserService;
 
@@ -25,7 +24,7 @@ public class UserRestController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/user/{name}/{password}")
-	public Session userLogin(@PathVariable String name, @PathVariable String password) {
+	public User userLogin(@PathVariable String name, @PathVariable String password) {
 
 		return userService.login(name, password);
 

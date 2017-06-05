@@ -8,45 +8,75 @@ import finalProject.model.ShoppingCart;
 import finalProject.repositories.ProductRepository;
 import finalProject.repositories.ShoppingCartRepository;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 @Component
 public class ShoppingCartServiceImpl implements ShoppingCartService {
 
-	private ShoppingCart shoppingCart;
+    private Map<Integer, ShoppingCart> shoppingCarts;
 
-	@Autowired
-	private ProductRepository productRepository;
+    @Autowired
+    private UserService userService;
 
-	@Autowired
-	private ShoppingCartRepository shoppingCartRepository;
+    @Autowired
+    private ProductRepository productRepository;
 
-	public ShoppingCartServiceImpl() {
+    @Autowired
+    private ShoppingCartRepository shoppingCartRepository;
 
-		this.shoppingCart = new ShoppingCart();
-	}
+    public ShoppingCartServiceImpl() {
 
-	@Override
-	public void addProduct(Integer productid) {
+        this.shoppingCarts = new HashMap<>();
+    }
 
-		Product product = productRepository.findOne(productid);
-		if (product != null) {
-			this.shoppingCart.getProducts().add(product);
-		}
-	}
+    @Override
+    public void addProduct(Integer userId, Integer productid) {
 
-	@Override
-	public void saveShoppingCart() {
+        if (getAshoppingCart(userId) != null) {
 
-		shoppingCartRepository.save(this.shoppingCart);
+            Product product = productRepository.findOne(productid);
 
-		shoppingCart = new ShoppingCart();
+            if (product != null) {
 
-	}
+                getAshoppingCart(userId).getProducts().add(product);
 
-	@Override
-	public ShoppingCart getAshoppingCart() {
+            }
 
-		return this.shoppingCart;
+        }
+    }
 
-	}
+    @Override
+    public void saveShoppingCart(Integer userId) {
+
+        if (getAshoppingCart(userId) != null) {
+
+            shoppingCartRepository.save(shoppingCarts.get(userId));
+            shoppingCarts.remove(userId);
+        }
+    }
+
+    @Override
+    public ShoppingCart getAshoppingCart(Integer userId) {
+
+        if (userService.isUserOn(userId)) {
+
+            if (shoppingCarts.containsKey(userId)) {
+
+                return shoppingCarts.get(userId);
+
+            } else {
+
+                shoppingCarts.put(userId, new ShoppingCart());
+                return shoppingCarts.get(userId);
+
+            }
+
+        }
+
+        return null;
+    }
 
 }
